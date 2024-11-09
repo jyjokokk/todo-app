@@ -148,3 +148,4 @@ yarn.lock
 
 dist
 .local
+coverage
