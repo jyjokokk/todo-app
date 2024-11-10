@@ -1,4 +1,12 @@
 {
+  "include": [
+    "src/**/*.ts",
+    // "*.ts",
+    // "src/**/*.json",
+    // "tests/**/*.ts",
+    "eslint.config.mjs"
+  ],
+  "exclude": ["node_modules", "dist", ".local", "coverage"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
@@ -109,6 +117,7 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipDefaultLibCheck": false,
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "strictNullChecks": true
   }
 }
