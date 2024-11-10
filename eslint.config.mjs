@@ -1,8 +1,7 @@
 import js from '@eslint/js'
-// import ts from '@typescript-eslint/eslint-plugin'
-// import tsParser from '@typescript-eslint/parser'
 import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import tseslint from 'typescript-eslint'
+import jestEslintPlugin from 'eslint-plugin-jest'
 
 export default tseslint.config(
   js.configs.recommended,
@@ -41,6 +40,16 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-return': 'warn',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/strict-boolean-expressions': 'warn'
+    }
+  },
+  {
+    extends: [
+      js.configs.recommended,
+      jestEslintPlugin.configs['flat/recommended']
+    ],
+    files: ['**/*.spec.ts', '**/*.test.ts'],
+    rules: {
+      ...jestEslintPlugin.configs['flat/recommended'].rules
     }
   },
   pluginPrettierRecommended
