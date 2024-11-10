@@ -15,16 +15,16 @@ const dotenv = {
 const dependencies: any = {
   dotenv
 }
+
 let instance: ConfigService
 let calls: any = {
   dotenv: {}
 }
-
 beforeEach(() => {
-  instance = new ConfigService(dependencies)
   calls = {
     dotenv: {}
   }
+  instance = new ConfigService(dependencies)
 })
 
 describe('ConfigService', () => {
