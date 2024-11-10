@@ -4,7 +4,10 @@ const dotenv = {
   config() {
     calls.dotenv.config = true
     return {
-      PORT: '3000'
+      error: null,
+      parsed: {
+        PORT: '3000'
+      }
     }
   }
 }
@@ -13,7 +16,9 @@ const dependencies: any = {
   dotenv
 }
 let instance: ConfigService
-let calls: any = {}
+let calls: any = {
+  dotenv: {}
+}
 
 beforeEach(() => {
   instance = new ConfigService(dependencies)

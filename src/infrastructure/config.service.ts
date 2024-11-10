@@ -12,11 +12,11 @@ export class ConfigService {
   }
 
   private loadEnvironmentVars() {
-    const envs = this.dotenv.config()
-    if (envs.error || !envs.parsed) {
-      throw new Error('Failed to load environment variables', envs.error)
+    const parseResult = this.dotenv.config()
+    if (parseResult.error || !parseResult.parsed) {
+      throw new Error('Failed to load environment variables', parseResult.error)
     }
-    return envs.parsed
+    return parseResult.parsed
   }
 
   getEnvs(): EnvParseOutput {
