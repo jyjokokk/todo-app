@@ -16,10 +16,6 @@ async function main() {
   await orm.close()
 }
 
-export function filterNumbers(numbers: number[]): number[] {
-  return numbers.filter((number) => number > 0)
-}
-
 main().catch((err: unknown) => {
   console.error(err)
   process.exit(1)

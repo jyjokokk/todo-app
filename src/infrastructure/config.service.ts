@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv'
 import { ConfigServiceDependencies, type EnvParseOutput } from './config.types'
+import config from '../../config'
 
 export class ConfigService {
   readonly envs: EnvParseOutput
@@ -21,6 +22,10 @@ export class ConfigService {
 
   getEnvs(): EnvParseOutput {
     return this.envs
+  }
+
+  getConfig() {
+    return { ...this.envs, ...config }
   }
 }
 
