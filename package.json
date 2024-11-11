@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "backend for a todo-list application",
   "main": "dist/index.js",
-  "author": "jyjokokk <j.j.kokkola@gmail.com> (https://github.com/jyjokokk)",
+  "author": {
+    "name": "Jyrki Kokkola",
+    "email": "j.j.kokkola@gmail.com",
+    "url": "https://github.com/jyjokokk/todo-app"
+  },
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "20.18.0"
+    "node": ">=20.18.0"
   },
   "scripts": {
     "prebuild": "rm -rf dist/*",

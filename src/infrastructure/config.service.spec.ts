@@ -34,7 +34,6 @@ describe('ConfigService', () => {
       expect(r).toEqual({ PORT: '3000' })
     })
     it('should call dotenv', () => {
-      instance.getEnvs()
       expect(calls.dotenv.config).toBe(true)
     })
   })
