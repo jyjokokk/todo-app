@@ -1,4 +1,4 @@
-# ToDo Application - Backend
+# To Overdo - Backend
 
 Backend for a simple ToDo list application - NodeJS version
 
