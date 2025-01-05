@@ -2,8 +2,11 @@ import 'reflect-metadata'
 import mikroOrmConfig from './infrastructure/database/mikro-orm.config'
 import { MikroORM } from '@mikro-orm/core'
 import { Task } from './domain/entities/task.entity'
+import configService from './infrastructure/config/config.service'
 
 async function main() {
+  configService.getConfig()
+
   const orm = await MikroORM.init(mikroOrmConfig)
   // const taskRepository = orm.em.getRepository(Task)
   const newTask = new Task({ description: 'Sample task', completed: false })

@@ -2,5 +2,17 @@
 
 export default {
   PORT: 3030,
-  DATABASE_URI: 'local.db'
+  DATABASE_URI: 'local.db',
+  LOCAL: {
+    DATABASE_URI: 'development.db',
+    PORT: 3030
+  },
+  DEVELOPMENT: {
+    DATABASE_URI: 'development.db',
+    PORT: 3030
+  },
+  PRODUCTION: {
+    DATABASE_URI: 'development.db',
+    PORT: 3030
+  }
 }
