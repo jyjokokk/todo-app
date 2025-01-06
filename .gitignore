@@ -149,3 +149,6 @@ yarn.lock
 dist
 .local
 coverage
+
+.vscode
+development.db
