@@ -4,4 +4,5 @@
 
 import configService from '../infrastructure/config/config.service'
 
-export const DATABASE_URI = configService.getConfig().DATABASE_URI
+export const DATABASE_URI = configService.config.DATABASE_URI
+export const PORT = configService.config.PORT

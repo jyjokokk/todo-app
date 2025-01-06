@@ -48,13 +48,19 @@ export default tseslint.config(
       jestEslintPlugin.configs['flat/recommended']
     ],
     files: ['**/*.spec.ts', '**/*.test.ts'],
+    env: {
+      jest: true
+    },
     rules: {
       ...jestEslintPlugin.configs['flat/recommended'].rules,
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-argument': 'off'
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'no-unused-local-vars': 'off',
+      'no-unused-vars': 'off'
     }
   },
   pluginPrettierRecommended

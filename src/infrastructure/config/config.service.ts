@@ -1,22 +1,20 @@
 import * as dotenv from 'dotenv'
-import { ConfigServiceDependencies, type EnvParseOutput } from './config.types'
+import { ConfigObject, type EnvParseOutput } from './config.types'
 import config from '../../../config'
 
-// TODO: remove dotenv from dependencies, and just use it directly here:
-// dotenv.config()
+// TODO: isProduction and isDevelopment functions (to separate file)
 
 export class ConfigService {
   readonly envs: EnvParseOutput
-  private readonly dotenv: typeof dotenv
+  readonly configEnv: ConfigObject
 
-  constructor(dependencies: ConfigServiceDependencies) {
-    const { dotenv } = dependencies
-    this.dotenv = dotenv
+  constructor() {
     this.envs = this.loadEnvironmentVars()
+    this.configEnv = this.getConfig()
   }
 
   private loadEnvironmentVars() {
-    const parseResult = this.dotenv.config()
+    const parseResult = dotenv.config()
     if (parseResult.error || !parseResult.parsed) {
       throw new Error('Failed to load environment variables', parseResult.error)
     }
@@ -27,16 +25,22 @@ export class ConfigService {
     return this.envs
   }
 
-  getConfig() {
-    return { ...this.envs, ...config }
+  getConfig(): ConfigObject {
+    if (this.envs.IS_LOCAL === 'true') {
+      return config.LOCAL
+    }
+    if (this.envs.IS_DEVELOPMENT === 'true') {
+      return config.DEVELOPMENT
+    }
+    if (this.envs.IS_PRODUCTION === 'true') {
+      return config.PRODUCTION
+    }
+    throw new Error('No environment set in .env file')
   }
 
   get config() {
-    return this.getConfig()
+    return { ...this.envs, ...this.configEnv }
   }
 }
 
-const dependencies = {
-  dotenv
-}
-export default new ConfigService(dependencies)
+export default new ConfigService()

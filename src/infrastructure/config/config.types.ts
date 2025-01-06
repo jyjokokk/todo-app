@@ -1,9 +1,4 @@
-import * as dotenv from 'dotenv'
+import type config from '../../../config'
 
-export type DotEnv = typeof dotenv
-
+export type ConfigObject = (typeof config)['LOCAL']
 export type EnvParseOutput = Record<string, string>
-
-export interface ConfigServiceDependencies {
-  dotenv: DotEnv
-}

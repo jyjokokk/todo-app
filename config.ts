@@ -1,6 +1,6 @@
 // TODO: Separate config for development and production by key
 
-export default {
+const config = {
   PORT: 3030,
   DATABASE_URI: 'local.db',
   LOCAL: {
@@ -15,4 +15,6 @@ export default {
     DATABASE_URI: 'development.db',
     PORT: 3030
   }
-}
+} as const
+
+export default config
